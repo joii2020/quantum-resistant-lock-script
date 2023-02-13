@@ -20,6 +20,7 @@ fn main() {
     let resolved_tx = build_resolved_tx(&dummy, &tx);
     let mut verifier = TransactionScriptsVerifier::new(&resolved_tx, &dummy);
 
+
     verifier.set_debug_printer(debug_printer);
     let verify_result = verifier.verify(MAX_CYCLES);
     let res = verify_result.expect("pass verification");
