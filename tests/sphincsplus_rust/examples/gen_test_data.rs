@@ -31,7 +31,7 @@ fn get_hash_mode_name() -> String {
     #[cfg(feature = "thashes_simple")]
     let thash = "simple";
 
-    let ret = format!("{}_{}{}_{}", hash_name, hash_size, hash_option, thash);
+    let ret = format!("{}-{}{}-{}", hash_name, hash_size, hash_option, thash);
 
     ret
 }
@@ -81,26 +81,22 @@ fn main() {
     data += "#include <stdint.h>\n\n";
 
     data += &format!(
-        "uint8_t G_{}_PUB_KEY[] = {{\n{}\n}};\n",
-        get_hash_mode_name().to_uppercase(),
+        "uint8_t G_TEST_DATA_PUB_KEY[] = {{\n{}\n}};\n",
         buf_to_string(&sp.pk)
     );
 
     data += &format!(
-        "uint8_t G_{}_PRI_KEY[] = {{\n{}\n}};\n",
-        get_hash_mode_name().to_uppercase(),
+        "uint8_t G_TEST_DATA_PRI_KEY[] = {{\n{}\n}};\n",
         buf_to_string(&sp.sk)
     );
 
     data += &format!(
-        "uint8_t G_{}_MSG[] = {{\n{}\n}};\n",
-        get_hash_mode_name().to_uppercase(),
+        "uint8_t G_TEST_DATA_MSG[] = {{\n{}\n}};\n",
         buf_to_string(&message)
     );
 
     data += &format!(
-        "uint8_t G_{}_SIGN[] = {{\n{}\n}};\n",
-        get_hash_mode_name().to_uppercase(),
+        "uint8_t G_TEST_DATA_SIGN[] = {{\n{}\n}};\n",
         buf_to_string(&sign_data)
     );
     data += "// clang-format on\n";

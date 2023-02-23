@@ -31,7 +31,7 @@ fn get_hash_info() -> (&'static str, Vec<&'static str>) {
 
     (
         "haraka",
-        vec!["ref/haraka.c", "ref/hash_haraka.c", thash_file ],
+        vec!["ref/haraka.c", "ref/hash_haraka.c", thash_file],
     )
 }
 #[cfg(feature = "sha2")]
